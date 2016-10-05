@@ -1,0 +1,1 @@
+The examples in Chapter 8 have not been divided into the appropriate sub-directories. These classes are mainly a re-factoring of code detailed in previous chapters. Simply overwrite the code in previous chapters and recompile with these classes.

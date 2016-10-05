@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+<struts-config>
+<!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+    <!-- Login form bean -->
+    <form-bean      name="login"
+                    type="com.apress.ejsap.LoginForm"/>
+    <!-- Material form bean -->
+    <form-bean      name="material"
+                    type="com.apress.ejsap.MaterialForm"/>
+  </form-beans>
+<!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward   name="login"                path="/saplogin.jsp"/>
+  </global-forwards>
+<!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+<!-- Process a user login -->
+    <action     path="/saplogin"
+                type="com.apress.ejsap.LoginAction"
+                name="login"
+                scope="session"
+                input="/saplogin.jsp">
+      <forward name="success" path="/saploginResult.jsp"/>
+<!-- Execute material search -->
+     <action     path="/materialsearch"
+                type="com.apress.ejsap.MaterialAction"
+                name="material"
+                scope="session"
+                input="/materialsearch.jsp">
+   <forward name="success" path="/materialsearchResult.jsp"/>
+     </action>     
+
+<!-- Retrieve material detail -->
+     <action     path="/materialdetail"
+                type="com.apress.ejsap.MaterialDetailAction"
+                name="material"
+                scope="session"
+                input="/materialsearchResult.jsp">
+   <forward name="success" path="/materialdetailResult.jsp"/>
+     </action>
+      
+    </action>
+  </action-mappings>
+</struts-config>
